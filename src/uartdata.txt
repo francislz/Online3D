@@ -1,0 +1,318 @@
+Data: echo:busy: processing
+
+Data: X:-5.00 Y:-5.00 Z:10.00 E:0.00 Coent X:-400 Y:-400 Z:4000
+
+Data: echo:Bed Leveling ON
+
+Data: echo:Fade Height 10.00
+Data: �G28
+
+Data: echo:Now fresh file: ce48a6~1.gco
+
+Data: File opened: ce48a6~1.gco Size: 9771529
+
+Data: File selected
+
+Data: ok T:21.29 /0.00 B:20.62 /65.00 @:0 B@:0
+
+Data:  T:21.29 /0.00 B:20.62 /65.00 @:0 B@:0 W:?
+
+Data:  T:21.33 /0.00 B:20.62 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.33 /0.00 B:20.66 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.33 /0.00 B:20.98 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:21.21 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.41 /0.00 B:21.41 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.33 /0.00 B:21.64 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:21.95 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.29 /0.00 B:22.27 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:22.70 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.29 /0.00 B:23.12 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.33 /0.00 B:23.55 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.33 /0.00 B:23.91 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:24.49 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:25.03 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:25.40 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.29 /0.00 B:25.62 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.33 /0.00 B:26.08 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.33 /0.00 B:26.45 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:26.90 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:27.33 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:27.76 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.37 /0.00 B:28.18 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.33 /0.00 B:28.58 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.29 /0.00 B:29.03 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.25 /0.00 B:29.52 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:29.86 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:30.26 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:30.60 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.37 /0.00 B:31.15 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:31.51 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.33 /0.00 B:31.85 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.29 /0.00 B:32.21 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:32.63 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:33.23 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:33.65 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:34.06 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.25 /0.00 B:34.32 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:34.82 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:35.17 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.33 /0.00 B:35.48 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.37 /0.00 B:35.79 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:36.19 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.25 /0.00 B:36.46 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.29 /0.00 B:36.75 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.33 /0.00 B:37.06 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.33 /0.00 B:37.44 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:37.73 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.33 /0.00 B:38.04 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:38.35 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.33 /0.00 B:38.67 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.25 /0.00 B:39.00 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.29 /0.00 B:39.33 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:39.67 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.41 /0.00 B:40.00 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.25 /0.00 B:40.28 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.29 /0.00 B:40.48 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.25 /0.00 B:40.77 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:40.99 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:41.25 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.29 /0.00 B:41.49 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:41.82 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.29 /0.00 B:42.06 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:42.35 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:42.65 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.33 /0.00 B:42.92 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.29 /0.00 B:43.05 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.25 /0.00 B:43.38 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.37 /0.00 B:43.77 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.33 /0.00 B:43.86 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.29 /0.00 B:44.15 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.33 /0.00 B:44.43 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.29 /0.00 B:44.71 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:45.00 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.29 /0.00 B:45.23 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.25 /0.00 B:45.35 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:45.53 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.45 /0.00 B:45.84 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:46.05 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.25 /0.00 B:46.33 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:46.50 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:46.74 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.29 /0.00 B:46.89 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.25 /0.00 B:47.11 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:47.35 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.25 /0.00 B:47.60 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.41 /0.00 B:47.86 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.64 /0.00 B:48.09 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.25 /0.00 B:48.19 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.52 /0.00 B:48.54 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.41 /0.00 B:48.68 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.29 /0.00 B:48.90 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.33 /0.00 B:49.03 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.48 /0.00 B:49.29 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.45 /0.00 B:49.51 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.41 /0.00 B:49.72 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.33 /0.00 B:49.98 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+
+Data:  T:21.37 /0.00 B:50.13 /65.00 @:0 B@:127 W:?
+
+Data:  T:21.48 /0.00 B:50.26 /65.00 @:0 B@:127 W:?
+
+Data: echo:busy: processing
+Data:  T:21.37 /0.00 B:50.45 /65.00 @:0 B@:127 W:?
+Data: echo:busy: processing
+Data: echo:busy: processing
+Data: X:-5.00 Y:-5.00 Z:10.00 E:0.00 Count X:-400 Y:-400 Z:4000
+Data: echo:Bed Leveling ON
+Data: echo:Fade Height 10.00

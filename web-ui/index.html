@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WebSocket Data Monitor</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <style>
+    .container {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>WebSocket Data Monitor</h2>
+    <ul id="messages" class="list-group">
+      <!-- Messages will be added here dynamically -->
+    </ul>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // WebSocket connection
+    const socket = new WebSocket('ws://192.168.15.20/ws');
+
+    // When a message is received from the WebSocket server
+    socket.onmessage = function(event) {
+      const data = JSON.parse(event.data);
+      console.log(data)
+      const messageElement = `<li class="list-group-item">${data}</li>`;
+      $('#messages').append(messageElement);
+    };
+
+    // Handle WebSocket errors
+    socket.onerror = function(error) {
+      console.error('WebSocket Error:', error);
+    };
+
+    // Handle WebSocket close event
+    socket.onclose = function(event) {
+      if (event.wasClean) {
+        console.log(`WebSocket connection closed cleanly, code=${event.code}, reason=${event.reason}`);
+      } else {
+        console.error('WebSocket connection died');
+      }
+    };
+  </script>
+</body>
+</html>
