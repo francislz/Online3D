@@ -1,7 +1,9 @@
 function processData(data) {
-    if (data.startsWith('T:')) {
-        const index = data.indexOf('T:') + 2;
-        const temp = data.substring(index);
+    const dataWithoutSpaces = data.trim();
+    console.log('data without spaces', dataWithoutSpaces);
+    if (dataWithoutSpaces.includes('T:')) {
+        const index = dataWithoutSpaces.indexOf('T:') + 2;
+        const temp = dataWithoutSpaces.substring(index, index + 6);
         console.log('temp', temp);
         document.getElementById('temperature').innerText = temp + " °C";
     }

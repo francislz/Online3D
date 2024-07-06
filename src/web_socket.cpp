@@ -15,7 +15,7 @@ WebSocket::~WebSocket() {
     this->server = NULL;
     this->ws = NULL;
 }
-        
+
 bool WebSocket::sendMessage(String message) {
     this->ws->textAll(message);
     return true;
