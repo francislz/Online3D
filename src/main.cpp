@@ -56,10 +56,9 @@ void setup() {
 }
 
 void loop() {
-  Serial.println("Connecting to printer");
   if (Printer.available()) {
     String data = Printer.readStringUntil('\n');
+    Serial.println("Data" + data);
     ws->sendMessage(data);
   }
-  delay(5000);
 }
