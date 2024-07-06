@@ -1,5 +1,4 @@
 #include <AsyncWebSocket.h>
-#include <ArduinoJson.h>
 #include "handlers.hpp"
 
 void onEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventType type, void *arg, uint8_t *data, size_t len) {
@@ -17,19 +16,4 @@ void onEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventType 
     case WS_EVT_ERROR:
       break;
   }
-}
-
-String parseMessage(Positions* pos, Temps* temps, Times* times) {
-    JsonDocument doc;
-    doc["x"] = pos->x;
-    doc["y"] = pos->y;
-    doc["z"] = pos->z;
-    doc["bedTemp"] = temps->bed;
-    doc["nozzle"] = temps->nozzle;
-    doc["ellapsed"] = times->ellapse;
-    doc["remaining"] = times->remaining;
-
-    String output;
-    serializeJson(doc, output);
-    return output;
 }

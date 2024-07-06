@@ -6,7 +6,6 @@
 #include <ESPAsyncWebServer.h>
 #include "web_socket.hpp"
 #include "handlers.hpp"
-#include "defs.hpp"
 
 HardwareSerial Printer(1);
 WebSocket *ws;
@@ -57,25 +56,10 @@ void setup() {
 }
 
 void loop() {
-  Positions pos;
-  pos.x = "10.0";
-  pos.y = "11.0";
-  pos.z = "0.4";
-
-  Times time;
-  time.ellapse = "00:01:31";
-  time.remaining = "00:03:07";
-
-  Temps temps;
-  temps.bed = "65";
-  temps.nozzle = "215";
-
-  String output = parseMessage(&pos, &temps, &time);
-  ws->sendMessage(output);
+  Serial.println("Connecting to printer");
   if (Printer.available()) {
-    Serial.println("UART Connect started");
     String data = Printer.readStringUntil('\n');
-    Serial.println("Data: " + data);
+    ws->sendMessage(data);
   }
   delay(5000);
 }
