@@ -41,6 +41,9 @@ void setup() {
 
   setupWifi();
   ws = new WebSocket(onEvent);
+  String command = "M117 IP: " + WiFi.localIP().toString();
+  Serial.println(command);
+  Serial1.println(command);
 }
 
 void loop() {

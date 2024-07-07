@@ -14,6 +14,10 @@
     .progress {
       height: 30px;
     }
+    #commandLog {
+      height: 200px;
+      overflow-y: scroll;
+    }
   </style>
 </head>
 <body>
@@ -23,10 +27,11 @@
       <div class="col-md-6">
         <div class="card">
           <div class="card-header">
-            Temperature
+            Temperatures
           </div>
           <div class="card-body">
-            <p id="temperature" class="metric">-- °C</p>
+            <p id="temperatureBed" class="metric">Bed: -- °C</p>
+            <p id="temperatureNozzle" class="metric">Nozzle: -- °C</p>
           </div>
         </div>
       </div>
@@ -50,7 +55,11 @@
             Position
           </div>
           <div class="card-body">
-            <p id="position" class="metric">X: -- Y: -- Z: --</p>
+            <div>
+              <span id="positionX">X: --</span>
+              <span id="positionY">Y: --</span>
+              <span id="positionZ">X: --</span>
+            </p>
           </div>
         </div>
       </div>
@@ -125,7 +134,7 @@
     }
 
     function onMessage(event) {
-      document.getElementById('commandLog').append = event.data;
+      document.getElementById('commandLog').innerHTML += '<li>' + event.data + '</li>';
       console.log('Message received: ', event.data);
       processData(event.data);
     }
