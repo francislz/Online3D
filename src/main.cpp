@@ -37,18 +37,18 @@ void setupWifi() {
 
 void setup() {
   Serial.begin(9600);
-  Serial1.begin(115200, SERIAL_8N1, 4, 2);
+  Serial2.begin(115200, SERIAL_8N1, 16, 17);
 
   setupWifi();
   ws = new WebSocket(onEvent);
   String command = "M117 IP: " + WiFi.localIP().toString();
   Serial.println(command);
-  Serial1.println(command);
+  Serial2.println(command);
 }
 
 void loop() {
-  if (Serial1.available()) {
-    String data = Serial1.readStringUntil('\n');
+  if (Serial2.available()) {
+    String data = Serial2.readStringUntil('\n');
     Serial.println("Data" + data);
     ws->sendMessage(data);
   }

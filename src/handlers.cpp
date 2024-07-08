@@ -11,7 +11,7 @@ void handleWebSocketMessage(void *arg, uint8_t *data, size_t len) {
       const int index = parsedData->indexOf("COMMAND:");
       String command = parsedData->substring(index + 8, len);
       Serial.printf("Command received: %s \n",command);
-      Serial1.println(command + '\n');
+      Serial2.println(command + '\n');
     }
   }
 }

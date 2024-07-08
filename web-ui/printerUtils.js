@@ -1,25 +1,30 @@
-function processData(data) {
-    const dataWithoutSpaces = data.trim();
-    console.log('data without spaces: ', dataWithoutSpaces);
-    if (dataWithoutSpaces.includes('T:')) {
-        const index = dataWithoutSpaces.indexOf('T:') + 2;
-        const temp = dataWithoutSpaces.substring(index, index + 6);
-        console.log('temp', temp);
-        document.getElementById('temperatureNozzle').innerText = "Nozzle: " + temp + " °C";
+function extractInfo(data, prefix, padding) {
+    const index = data.indexOf(prefix) + prefix.length;
+    return data.substring(index, index + padding);
+}
+
+function processData(rawData) {
+    const data = rawData.trim();
+
+    if (data.includes('T:')) {
+        const nozzleTemp = extractInfo(data, 'T:', 6);
+        $('#temperatureNozzle').html("Nozzle: " + nozzleTemp + " °C");
+        const bedTemp = extractInfo(data, 'B:', 6);
+        $('#temperatureBed').html("Bed: " + bedTemp + " °C");
     }
 
-    if (dataWithoutSpaces.includes('B:')) {
-        const index = dataWithoutSpaces.indexOf('B:') + 2;
-        const temp = dataWithoutSpaces.substring(index, index + 6);
-        console.log('temp', temp);
-        document.getElementById('temperatureBed').innerText = "Bed: " + temp + " °C";
+    if (data.startsWith('X:')) {
+        const x = extractInfo(data, 'X:', 6);
+        $('#positionX').html("X: " + x + " mm");
+        const y = extractInfo(data, 'Y:', 6);
+        $('#positionY').html("Y: " + y + " mm");
+        const z = extractInfo(data, 'Z:', 6);
+        $('#positionZ').html("Z: " + z + " mm");
     }
 
-    if (dataWithoutSpaces.startsWith('X:')) {
-        const index = dataWithoutSpaces.indexOf('X:') + 2;
-        const x = dataWithoutSpaces.substring(index, index + 6);
-        console.log('x', x);
-        document.getElementById('positionX').innerText = "X: " + x + " mm";
+    if (data.startsWith('echo:Print time:')) {
+        const time = extractInfo(data, 'Print time:', 8);
+        $('#elapsedTime').html(time);
     }
 }
       // document.getElementById('progress-bar').style.width = data.progress + "%";

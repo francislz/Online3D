@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="./printerUtils.js"></script>
+  <script src="./commands.js"></script>
   <title>3D Printer Dashboard</title>
   <style>
     .metric {
@@ -38,20 +42,6 @@
       <div class="col-md-6">
         <div class="card">
           <div class="card-header">
-            Progress
-          </div>
-          <div class="card-body">
-            <div class="progress">
-              <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row mt-3">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
             Position
           </div>
           <div class="card-body">
@@ -62,14 +52,74 @@
             </p>
           </div>
         </div>
+        </div>
       </div>
+    </div>
+    <div class="row mt-3">
       <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            Progress
+          </div>
+          <div class="card-body">
+            <div class="progress">
+              <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 40%;">40%</div>
+            </div>
+              E: <span id="elapsedTime">--</span>
+              R: <span id="remainingTime">--</span>
+          </div>
+        </div>
+      </div>
+<div class="col-md-6">
         <div class="card">
           <div class="card-header">
             Printer Status
           </div>
           <div class="card-body">
             <p id="status" class="metric">--</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--- Printer controls - Pause, Resume, Stop -->
+    <div class="row mt-3">
+      <div class="col-md-4">
+              <!--- With icons -->
+              <button type="button" class="btn btn-outline-warning" onclick="sendGcode('PAUSE')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pause" viewBox="0 0 16 16"> <path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5m4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5"/> </svg>
+              </button>
+              <button type="button" class="btn btn-outline-success" onclick="sendGcode('RESUME')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play" viewBox="0 0 16 16"> <path d="M4.79 14.21a.5.5 0 0 1-.79-.41V2.21a.5.5 0 0 1 .79-.41l10 6a.5.5 0 0 1 0 .82l-10 6a.5.5 0 0 1-.79-.41z"/> </svg>
+              </button>
+              <button type="button" class="btn btn-outline-danger" onclick="sendGcode('STOP')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stop" viewBox="0 0 16 16"> <path d="M4.5 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1-.5-.5v-6z"/> </svg>
+              </button> 
+      </div>
+      </div>
+      <div class="row mt-3">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            Print Job
+          </div>
+          <div class="card-body">
+            <p id="fileName">--</p>
+            <p id="fileSize">--</p>
+            <p id="fileLayer">--</p>
+            <p id="fileHeight">--</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            Print Settings
+          </div>
+          <div class="card-body">
+            <p id="layerHeight">--</p>
+            <p id="infill">--</p>
+            <p id="printSpeed">--</p>
+            <p id="printTime">--</p>
           </div>
         </div>
       </div>
@@ -96,7 +146,7 @@
             <div class="input-group">
               <input type="text" id="gcodeInput" class="form-control" placeholder="Enter G-code command">
               <div class="input-group-append">
-                <button class="btn btn-primary" type="button" onclick="sendGcode()">Send</button>
+                <button class="btn btn-primary" type="button" onclick="onCommand()">Send</button>
               </div>
             </div>
           </div>
@@ -106,16 +156,17 @@
   </div>
 
   <script>
-    var gateway = `ws://192.168.15.4/ws`;
     var websocket;
 
     window.addEventListener('load', onLoad);
 
     function onLoad() {
-      initWebSocket();
+      var ip = prompt("Please enter the WebSocket IP address", "192.168.15.16");
+      initWebSocket(`ws://${ip}/ws`);
+      setInterval(updateTempsAndStatus, 30000); 
     }
 
-    function initWebSocket() {
+    function initWebSocket(gateway) {
       console.log('Trying to open a WebSocket connection...');
       websocket = new WebSocket(gateway);
       websocket.onopen = onOpen;
@@ -139,14 +190,23 @@
       processData(event.data);
     }
 
-    function sendGcode() {
+    function onCommand() {
       var gcode = document.getElementById('gcodeInput').value;
+      sendGcode(gcode);
+    }
+
+    function sendGcode(gcode) {
       websocket.send("COMMAND:" + gcode);
+    }
+
+    function updateTempsAndStatus() {
+      // Add your code here to update temperatures and printer status
+      sendGcode(Commands.GET_TEMPS);
+      sendGcode(Commands.GET_POSITION);
+      sendGcode(Commands.PROGRESS);
+      sendGcode(Commands.PRINT_TIME);
     }
   </script>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
