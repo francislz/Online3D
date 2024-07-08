@@ -3,14 +3,35 @@ function extractInfo(data, prefix, padding) {
     return data.substring(index, index + padding);
 }
 
-function processData(rawData) {
+function processData(rawData, isReadingFiles) {
     const data = rawData.trim();
+
+    if (data.includes('Begin file list')) {
+        return {
+            isReadingFiles: true,
+        }
+    }
+
+    if (data.includes('End file list')) {
+        return {
+            isReadingFiles: false,
+        }
+    }
+
+    if (isReadingFiles) {
+        return {
+            fileName: data,
+        };
+    }
 
     if (data.includes('T:')) {
         const nozzleTemp = extractInfo(data, 'T:', 6);
         $('#temperatureNozzle').html("Nozzle: " + nozzleTemp + " °C");
         const bedTemp = extractInfo(data, 'B:', 6);
         $('#temperatureBed').html("Bed: " + bedTemp + " °C");
+        return {
+            nozzleTemp: nozzleTemp,
+        };
     }
 
     if (data.startsWith('X:')) {
@@ -25,6 +46,9 @@ function processData(rawData) {
     if (data.startsWith('echo:Print time:')) {
         const time = extractInfo(data, 'Print time:', 8);
         $('#elapsedTime').html(time);
+        return {
+            elapsedTime: time,
+        }
     }
 }
       // document.getElementById('progress-bar').style.width = data.progress + "%";
